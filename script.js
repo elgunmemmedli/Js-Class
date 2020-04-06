@@ -51,10 +51,19 @@ let EM = new Enterprise("EM-Tech" , "Nizami");
 document.getElementsByTagName("h1")[0].innerHTML = EM.CompanyName;
 document.getElementsByTagName("main")[0].innerHTML = EM.List();
 
-function Send(){
-  document.getElementsByTagName("main")[0].innerHTML = EM.SendTo();
-  document.getElementsByTagName("main")[0].innerHTML = EM.List();
-  for(i=0; i<=2;i++){
-    document.getElementsByTagName("input")[i].value="";
+function Send() {
+  let one = document.getElementById("recipient-name").value;
+  let two = document.getElementById("recipient-duty").value;
+  let three = document.getElementById("recipient-salary").value;
+
+  if (one == "" || two == "" || three == "") {
+    alert("Information not included in full!!");
+  } else {
+    document.getElementsByTagName("main")[0].innerHTML = EM.SendTo();
+    document.getElementsByTagName("main")[0].innerHTML = EM.List();
+    for (i = 0; i <= 2; i++) {
+      document.getElementsByTagName("input")[i].value = "";
+    }
+
   }
 }
